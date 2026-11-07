@@ -1,0 +1,43 @@
+{
+  "title": "Client video",
+  "version": "v1",
+  "fps": 30,
+  "scenes": [
+    {
+      "id": "intro",
+      "name": "Intro",
+      "t0": 0,
+      "t1": 5,
+      "beats": [
+        {
+          "t0": 1,
+          "t1": 4.5,
+          "peek": 3,
+          "els": [
+            [
+              "Headline",
+              0.2,
+              0.3,
+              0.8,
+              0.5
+            ],
+            [
+              "Button",
+              0.42,
+              0.6,
+              0.58,
+              0.68
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "outro",
+      "name": "Outro",
+      "t0": 5,
+      "t1": 10,
+      "beats": []
+    }
+  ]
+}

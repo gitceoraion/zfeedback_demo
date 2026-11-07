@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Z Feedback</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="edges">
+  <i data-r="n"></i><i data-r="s"></i><i data-r="e"></i><i data-r="w"></i>
+  <i data-r="ne"></i><i data-r="nw"></i><i data-r="se"></i><i data-r="sw"></i>
+</div>
+
+<header id="bar">
+  <div class="brand">
+    <img src="icons/app.png" alt="">
+    <strong>Z Feedback</strong>
+    <span class="tag" id="projectName"></span>
+  </div>
+  <div class="bar-right">
+    <span id="progress" class="muted"></span>
+    <button id="openSend" class="btn primary">Finish feedback</button>
+    <div class="win">
+      <button data-win="min" aria-label="Minimize"><svg viewBox="0 0 12 12"><path d="M2 6h8"/></svg></button>
+      <button data-win="max" aria-label="Maximize"><svg viewBox="0 0 12 12"><rect x="2.5" y="2.5" width="7" height="7" rx="1"/></svg></button>
+      <button data-win="close" class="close" aria-label="Close"><svg viewBox="0 0 12 12"><path d="M3 3l6 6M9 3l-6 6"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div id="noVideo" hidden>
+  <strong id="nvTitle"></strong>
+  <p id="nvText"></p>
+</div>
+
+<main id="layout">
+  <section id="player">
+    <div id="stageWrap">
+      <div id="stage">
+        <video id="video" preload="auto" playsinline></video>
+        <div id="spots"></div>
+        <div id="pins"></div>
+        <button id="bigPlay" aria-label="Play"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+        <div id="hint"></div>
+        <form id="composer" hidden>
+          <div class="cp-head"><span id="cpTarget"></span><span id="cpTime" class="mono muted"></span></div>
+          <textarea id="cpText" rows="3" placeholder="What should change here?"></textarea>
+          <div class="chips" id="cpCats"></div>
+          <div class="cp-foot">
+            <label class="check"><input type="checkbox" id="cpMust"><span></span>Must fix</label>
+            <div>
+              <button type="button" class="btn ghost" id="cpCancel">Cancel</button>
+              <button type="submit" class="btn primary">Save</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="transport">
+      <div id="timeline">
+        <div id="segments"></div>
+        <div id="played"></div>
+        <div id="marks"></div>
+        <div id="head"></div>
+        <div id="tip" hidden></div>
+      </div>
+      <div id="controls">
+        <div class="group">
+          <button class="ic" id="play" aria-label="Play"></button>
+          <button class="ic" id="stepBack" title="Previous frame (←)"><svg viewBox="0 0 24 24"><path d="M15 6l-7 6 7 6zM6 6h2v12H6z"/></svg></button>
+          <button class="ic" id="stepNext" title="Next frame (→)"><svg viewBox="0 0 24 24"><path d="M9 6l7 6-7 6zM16 6h2v12h-2z"/></svg></button>
+          <span id="time" class="mono"></span>
+        </div>
+        <div class="group">
+          <button class="btn soft" id="addGeneral" title="A note not tied to a frame, for example about the sound">General note</button>
+        </div>
+        <div class="group">
+          <div class="seg" id="speeds"></div>
+          <button class="ic" id="mute" aria-label="Sound"></button>
+          <input id="vol" type="range" min="0" max="1" step="0.01" value="0.9" aria-label="Volume">
+          <button class="ic" id="fs" title="Fullscreen (F)"><svg viewBox="0 0 24 24"><path d="M5 9V5h4M15 5h4v4M19 15v4h-4M9 19H5v-4" fill="none"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <aside id="side">
+    <div class="tabs">
+      <button data-tab="scenes" class="on">Scenes</button>
+      <button data-tab="notes">Notes <span id="noteCount" class="count">0</span></button>
+    </div>
+    <div id="scenes" class="pane"></div>
+    <div id="notes" class="pane" hidden></div>
+  </aside>
+</main>
+
+<div id="modal" hidden>
+  <div class="sheet" id="sheet"></div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

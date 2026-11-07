@@ -1,0 +1,13 @@
+# secrets and local build settings
+.env
+rs/.cargo/
+
+# build output
+rs/target/
+dist/
+
+# the demo video and demo/project.json ARE committed on purpose (public showcase)
+# keep real client material out:
+/*.mp4
+/*.zip
+/project.json
